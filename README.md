@@ -6,6 +6,9 @@ I created a simple Kafka Streams application with an additional health route.
 ## Initialize project
 
 https://start.spring.io/
+* Spring Web
+* Spring for Apache Kafka Streams
+* Thymeleaf
 
 ## Run project
 

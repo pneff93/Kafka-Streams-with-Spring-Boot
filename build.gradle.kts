@@ -7,7 +7,7 @@ plugins {
 	kotlin("plugin.spring") version "1.5.31"
 }
 
-group = "com.example"
+group = "kafkaStreams"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -16,13 +16,17 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+	implementation("org.apache.kafka:kafka-streams")
 	implementation ("io.github.microutils:kotlin-logging-jvm:2.0.10")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("junit:junit:4.11")
 }
 
 tasks.withType<KotlinCompile> {

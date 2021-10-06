@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Handling Form Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Fill out:</h1>
+<form action="#" th:action="@{/person}" th:object="${person}" method="post">
+  <p>Name: <input type="text" th:field="*{name}" /></p>
+  <p>Age: <input type="number" th:field="*{age}" /></p>
+  <p><input type="submit" value="Produce to Kafka" /> <input type="reset" value="Clear all fields" /></p>
+</form>
+</body>
+</html>
