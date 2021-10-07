@@ -1,9 +1,11 @@
 package kafkaStreams
 
 import mu.KotlinLogging
+import org.apache.kafka.clients.admin.NewTopic
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
+import org.springframework.stereotype.Component
 
 @SpringBootApplication
 class MainApplication {
@@ -13,6 +15,9 @@ class MainApplication {
     fun run() {
         val logger = KotlinLogging.logger("Application")
         logger.info { "Lets give it a try" }
+
+//        val topic: NewTopic = KafkaProducer.createTopic("person")
+//        logger.info { "topic created $topic" }
     }
 }
 
