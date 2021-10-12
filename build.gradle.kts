@@ -25,6 +25,9 @@ dependencies {
 	implementation("org.springframework.kafka:spring-kafka")
 	implementation ("io.github.microutils:kotlin-logging-jvm:2.0.10")
 
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	runtimeOnly("org.postgresql:postgresql")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("junit:junit:4.11")
 	testImplementation("org.springframework.kafka:spring-kafka-test")

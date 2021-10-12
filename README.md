@@ -1,16 +1,22 @@
 # Kafka Streams with Spring Boot
 
-This project serves as a playground for me learning Spring Boot and its components.
-I focussed on the following things:
+This project serves as a playground for me learning Spring Boot and its components:
+
+Basically, you can produce data via an HTML form under `localhost:5555/person`.
+
+This data is produced to Apache Kafka,
+processed by Kafka Streams, and finally consumed again. All Kafka topics are created
+programmatically when starting the application. Moreover, we use Avro schema, and a
+registry to move the data. `localhost:5555/health` provides a health route for Kafka Streams.
+
+Finally, the data is stored in a PostgreSQL database `testDB`.
+
+Functions as well as the topologies are being tested by unit tests.
 
 
-* creating a RestController to send data via [HTML form]((https://spring.io/guides/gs/handling-form-submission/))
-* creating [Kafka topics programmatically](https://developer.confluent.io/learn-kafka/spring/hands-on-create-kafka-topics/) using [BeanFactory](https://stackoverflow.com/questions/56770412/creating-multiple-kafka-topics-using-spring)
-* producing and consuming data with Kafka Streams
+
 * using [JSON Serde](https://howtodoinjava.com/kafka/spring-boot-jsonserializer-example/)  
-* using Avro schema
-* adding a HealthRoute
-* testing functions
+
 
 ## Initialize Project
 
@@ -21,28 +27,34 @@ https://start.spring.io/
 * Spring for Apache Kafka Streams
 * Spring for Apache Kafka
 * Thymeleaf
+* PostgreSQL Driver
+* Spring Data JPA
 
 ## Run Project
 
-Start Kafka broker and schema registry with
-`docker-compose up -d`
+Start Kafka broker, Zookeeper, and schema registry
 
-Run program then with `./gradlew bootRun`
+```docker-compose up -d```
 
-Under `localhost:5555/person` you can produce data into Kafka via an HTML form.
+Run program
 
-The URL `localhost:5555/health` provides a health route for the streams processor. 
+```./gradlew bootRun```
+
 
 
 ## Additional Sources
 
 * [Annotations](http://www.matthiassommer.it/programming/spring-konzepte-annotationen/)
+* [PostgreSQL](https://www.bezkoder.com/spring-boot-postgresql-example/)
+* [Logging](https://github.com/MicroUtils/kotlin-logging)
 
 ### Spring Boot
 * [Spring Boot Tutorial](https://spring.io/guides/gs/spring-boot/)
+* [HTML form]((https://spring.io/guides/gs/handling-form-submission/))
   
 ### Kafka Streams
 * [developer.confluent.io](https://developer.confluent.io/learn-kafka/spring/confluent-cloud/)  
+* [Kafka topics](https://stackoverflow.com/questions/56770412/creating-multiple-kafka-topics-using-spring)
 
-### Logging
-* [logging](https://github.com/MicroUtils/kotlin-logging)
+### PostgreSQL
+* 
