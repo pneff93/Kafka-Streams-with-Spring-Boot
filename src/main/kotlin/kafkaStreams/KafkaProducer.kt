@@ -23,6 +23,6 @@ class KafkaProducer {
 
     fun sendEvent(person: Person) {
         kafkaTemplate.send(kafkaTopics.producer, person.id!!, person)
-        logger.info { "event sent: $person" }
+        logger.info { "event sent: $person to topic: ${kafkaTopics.producer}" }
     }
 }

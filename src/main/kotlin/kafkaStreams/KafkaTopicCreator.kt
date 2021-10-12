@@ -21,16 +21,13 @@ class KafkaTopics {
 }
 
 @Configuration
-class TopicCreator(context: GenericApplicationContext) {
+class KafkaTopicCreator(context: GenericApplicationContext) {
 
     val logger = KotlinLogging.logger("Topic Creator")
     val beanRegistry = context.beanFactory
 
     @Autowired
-    lateinit var topics: KafkaTopics
-
-    @Bean
-    fun registerTopics() {
+    fun registerTopics(topics: KafkaTopics) {
         topics.createList().forEach { createTopic(it) }
     }
 
