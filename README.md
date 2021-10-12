@@ -50,11 +50,8 @@ Run program
 
 ### Spring Boot
 * [Spring Boot Tutorial](https://spring.io/guides/gs/spring-boot/)
-* [HTML form]((https://spring.io/guides/gs/handling-form-submission/))
+* [HTML form](https://spring.io/guides/gs/handling-form-submission/)
   
 ### Kafka Streams
 * [developer.confluent.io](https://developer.confluent.io/learn-kafka/spring/confluent-cloud/)  
 * [Kafka topics](https://stackoverflow.com/questions/56770412/creating-multiple-kafka-topics-using-spring)
-
-### PostgreSQL
-* 
