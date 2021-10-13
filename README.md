@@ -1,21 +1,25 @@
 # Kafka Streams with Spring Boot
 
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 This project serves as a playground for me learning Spring Boot and its components:
 
 Basically, you can produce data via an HTML form under `localhost:5555/person`.
 
-This data is produced to Apache Kafka,
+The data is produced to Apache Kafka,
 processed by Kafka Streams, and finally consumed again. All Kafka topics are created
-programmatically when starting the application. Moreover, we use Avro schema, and a
-registry to move the data. `localhost:5555/health` provides a health route for Kafka Streams.
+programmatically when starting the application. A health route is provided by `localhost:5555/health`.
+
+Moreover, we use Avro schema, and a registry to move the data. 
+Here, we use the default setting `auto.register.schemas` to true, so that
+we do not need to register the schema per hand. `http://localhost:8081/subjects` shows the registered schemas.
+When working with SpringBoot and JSON Serde, here you can find a good [documentation](https://howtodoinjava.com/kafka/spring-boot-jsonserializer-example/).
 
 Finally, the data is stored in a PostgreSQL database `testDB`.
 
 Functions as well as the topologies are being tested by unit tests.
 
 
-
-* using [JSON Serde](https://howtodoinjava.com/kafka/spring-boot-jsonserializer-example/)  
 
 
 ## Initialize Project
@@ -54,4 +58,9 @@ Run program
   
 ### Kafka Streams
 * [developer.confluent.io](https://developer.confluent.io/learn-kafka/spring/confluent-cloud/)  
-* [Kafka topics](https://stackoverflow.com/questions/56770412/creating-multiple-kafka-topics-using-spring)
+* [Kafka Topics](https://stackoverflow.com/questions/56770412/creating-multiple-kafka-topics-using-spring)
+* [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/schema_registry_onprem_tutorial.html#java-consumers)
+
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/patrick-neff-7bb3b21a4/

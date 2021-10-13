@@ -1,0 +1,26 @@
+{
+  "name": "Person",
+  "type": "record",
+  "namespace": "com.kafkaWithSpringBoot",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "yearOfBirth",
+      "type": [
+        "int",
+        "null"
+      ]
+    }
+  ]
+}

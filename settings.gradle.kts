@@ -1,1 +1,1 @@
-rootProject.name = "kafkaStreams"
+rootProject.name = "kafkaStreams-with-SpringBoot"

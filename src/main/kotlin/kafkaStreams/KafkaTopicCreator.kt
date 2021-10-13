@@ -32,7 +32,7 @@ class KafkaTopicCreator(context: GenericApplicationContext) {
     }
 
     fun createTopic(name: String) {
-        val newTopic = TopicBuilder.name(name).partitions(3).replicas(1).compact().build()
+        val newTopic = TopicBuilder.name(name).partitions(1).replicas(1).build()
         beanRegistry.registerSingleton("KafkaTopic: $name", newTopic)
         logger.info { "Kafka topic: $name created" }
     }

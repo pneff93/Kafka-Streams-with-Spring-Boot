@@ -1,25 +1,28 @@
 package kafkaStreams
 
 import org.springframework.stereotype.Component
-import java.util.*
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
 
+/* This class is only needed for the sql database storing
+ * For (de)serialization with Avro the generated Java class is used
+ */
 @Component
 @Entity
-@Table
-data class Person(
+@Table(name = "Person")
+data class PersonTable(
 
     @Id
-    var id: String? = UUID.randomUUID().toString(),
+    var id: String? = null,
     val name: String? = null,
     val age: Int? = null,
     var yearOfBirth: Int? = null
-) {
-
-    fun calculateYearOfBirth(): Person {
-        yearOfBirth = Calendar.getInstance().get(Calendar.YEAR) - age!!
-        return Person(id, name, age, yearOfBirth)
-    }
-}
+)
+// {
+//
+////    fun calculateYearOfBirth(): Person {
+////        yearOfBirth = Calendar.getInstance().get(Calendar.YEAR) - age!!
+////        return Person(id, name, age, yearOfBirth)
+////    }
+//}
