@@ -32,6 +32,7 @@ dependencies {
 
     implementation("org.apache.avro:avro:1.10.2")
     implementation("io.confluent:kafka-avro-serializer:6.1.0")
+    implementation("io.confluent:kafka-streams-avro-serde:5.2.1")
 
     implementation("io.github.microutils:kotlin-logging-jvm:2.0.10")
 

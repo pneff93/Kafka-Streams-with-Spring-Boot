@@ -28,10 +28,12 @@ class KafkaTopicCreator(context: GenericApplicationContext) {
 
     @Autowired
     fun registerTopics(topics: KafkaTopics) {
+
         topics.createList().forEach { createTopic(it) }
     }
 
     fun createTopic(name: String) {
+
         val newTopic = TopicBuilder.name(name).partitions(1).replicas(1).build()
         beanRegistry.registerSingleton("KafkaTopic: $name", newTopic)
         logger.info { "Kafka topic: $name created" }

@@ -1,7 +1,7 @@
 package kafkaStreams
 
+import com.kafkaWithSpringBoot.Person
 import mu.KotlinLogging
-import org.apache.avro.generic.GenericRecord
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.jpa.repository.JpaRepository
@@ -17,17 +17,16 @@ class KafkaConsumer {
     @Autowired
     lateinit var sqlDatabase: JpaRepository<PersonTable?, Int?>
 
-    //    @KafkaListener(topics = ["\${topic.consumer}"], groupId = "\${spring.kafka.streams.application-id}")
-    @KafkaListener(topics = ["\${topic.producer}"], groupId = "tessss")
-    fun consumeEvent(event: ConsumerRecord<String, GenericRecord>) {
+    @KafkaListener(topics = ["\${topic.consumer}"])
+    fun consumeEvent(event: ConsumerRecord<String, Person>) {
 
         logger.info { "event consumed: ${event.value()} from topic: ${event.topic()}" }
 
         val person = PersonTable(
-            event.value()["id"].toString(),
-            event.value()["name"].toString(),
-            event.value()["age"].toString().toInt(),
-//            event.value()["yearOfBirth"].toString().toInt()
+            event.value().getId(),
+            event.value().getName(),
+            event.value().getAge(),
+            event.value().getYearOfBirth()
         )
         sqlDatabase.save(person)
         logger.info { "event stored: $person in sql database" }

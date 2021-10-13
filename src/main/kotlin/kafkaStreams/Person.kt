@@ -19,10 +19,4 @@ data class PersonTable(
     val age: Int? = null,
     var yearOfBirth: Int? = null
 )
-// {
-//
-////    fun calculateYearOfBirth(): Person {
-////        yearOfBirth = Calendar.getInstance().get(Calendar.YEAR) - age!!
-////        return Person(id, name, age, yearOfBirth)
-////    }
-//}
+
