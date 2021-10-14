@@ -57,11 +57,13 @@ Run program
 ### Spring Boot
 * [Spring Boot Tutorial](https://spring.io/guides/gs/spring-boot/)
 * [HTML form](https://spring.io/guides/gs/handling-form-submission/)
+* [Testing](https://reflectoring.io/unit-testing-spring-boot/)
   
 ### Kafka Streams
 * [developer.confluent.io](https://developer.confluent.io/learn-kafka/spring/confluent-cloud/)  
 * [Kafka Topics](https://stackoverflow.com/questions/56770412/creating-multiple-kafka-topics-using-spring)
 * [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/schema_registry_onprem_tutorial.html#java-consumers)
+* [Testing with Avro Schema](https://blog.jdriven.com/2019/12/kafka-streams-topologytestdriver-with-avro/)
 
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555

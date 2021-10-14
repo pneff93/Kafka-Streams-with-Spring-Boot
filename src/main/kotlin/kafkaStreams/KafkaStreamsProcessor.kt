@@ -24,7 +24,7 @@ class KafkaStreamsProcessor {
 
 
     @Autowired
-    fun process(builder: StreamsBuilder, kafkaTopic: KafkaTopics) {
+    fun processStream(builder: StreamsBuilder, kafkaTopic: KafkaTopics) {
 
         builder
             .stream(kafkaTopic.producer, Consumed.with(Serdes.String(), specificAvro()))
@@ -34,7 +34,7 @@ class KafkaStreamsProcessor {
     }
 
     // For Kafka Streams we need to configure the SpecificAvroSerde
-    private fun specificAvro(): SpecificAvroSerde<Person> {
+    fun specificAvro(): SpecificAvroSerde<Person> {
 
         val serde: SpecificAvroSerde<Person> = SpecificAvroSerde<Person>()
         val config = mapOf(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG to schemaRegistryUrl)
@@ -44,7 +44,7 @@ class KafkaStreamsProcessor {
 
     fun calculateYearOfBirth(person: Person): Person {
 
-        person.setYearOfBirth (Calendar.getInstance().get(Calendar.YEAR) - person.getAge())
+        person.setYearOfBirth(Calendar.getInstance().get(Calendar.YEAR) - person.getAge())
         return person
     }
 }
