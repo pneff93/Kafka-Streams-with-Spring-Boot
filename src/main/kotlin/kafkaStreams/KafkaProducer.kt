@@ -27,6 +27,6 @@ class KafkaProducer {
 
         person.setId(UUID.randomUUID().toString())
         kafkaTemplate.send(kafkaTopics.producer, person.getId()!!, person)
-        logger.info { "event sent: $person to topic: ${kafkaTopics.producer}" }
+        logger.info { "event sent: ${person.getName()} to topic: ${kafkaTopics.producer}" }
     }
 }

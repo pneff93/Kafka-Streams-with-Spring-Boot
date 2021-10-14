@@ -20,7 +20,7 @@ class KafkaConsumer {
     @KafkaListener(topics = ["\${topic.consumer}"])
     fun consumeEvent(event: ConsumerRecord<String, Person>) {
 
-        logger.info { "event consumed: ${event.value()} from topic: ${event.topic()}" }
+        logger.info { "event consumed: ${event.value().getName()} from topic: ${event.topic()}" }
 
         val person = PersonTable(
             event.value().getId(),
@@ -29,6 +29,6 @@ class KafkaConsumer {
             event.value().getYearOfBirth()
         )
         sqlDatabase.save(person)
-        logger.info { "event stored: $person in sql database" }
+        logger.info { "event stored: ${person.name} in sql database" }
     }
 }

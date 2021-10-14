@@ -45,6 +45,8 @@ Run program
 ```./gradlew bootRun```
 
 
+![](run.gif)
+
 
 ## Additional Sources
 

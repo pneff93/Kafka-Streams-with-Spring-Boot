@@ -29,7 +29,7 @@ class KafkaStreamsProcessor {
         builder
             .stream(kafkaTopic.producer, Consumed.with(Serdes.String(), specificAvro()))
             .mapValues { _, value: Person -> calculateYearOfBirth(value) }
-            .peek { _, value -> logger.info { "event processed: $value from topic: ${kafkaTopic.producer} into ${kafkaTopic.consumer}" } }
+            .peek { _, value -> logger.info { "event processed: ${value.getName()}" } }
             .to(kafkaTopic.consumer, Produced.with(Serdes.String(), specificAvro()))
     }
 
