@@ -13,9 +13,9 @@ class KafkaProducer {
 
     val logger = KotlinLogging.logger("Kafka Producer")
 
-    /* Kafka Templates needs to initialize a ProducerFactory
-     * Autowired uses the application.properties to create one
-     * in the background and uses it when initializing the variable
+    /* Basically, we need a ProducerFactory with all configs
+     * Kafka Templates uses the DefaultKafkaProducerFactory
+     * with the configs out of the application.properties
      */
     @Autowired
     lateinit var kafkaTemplate: KafkaTemplate<String, Person>

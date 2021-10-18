@@ -7,7 +7,6 @@ import org.springframework.kafka.annotation.EnableKafkaStreams
 
 @SpringBootApplication
 @EnableKafkaStreams
-@EnableKafka
 class MainApplication
 
 fun main() {
