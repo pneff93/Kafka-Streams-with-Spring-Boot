@@ -10,14 +10,14 @@ The data is produced to Apache Kafka,
 processed by Kafka Streams, and finally consumed again. All Kafka topics are created
 programmatically when starting the application. A health route is provided by `localhost:5555/health`.
 
-Moreover, we use Avro schema, and a registry to move the data. 
-Here, we use the default setting `auto.register.schemas` to true, so that
-we do not need to register the schema per hand. `http://localhost:8081/subjects` shows the registered schemas.
-When working with SpringBoot and JSON Serde, here you can find a good [documentation](https://howtodoinjava.com/kafka/spring-boot-jsonserializer-example/).
+Moreover, a Avro schema with its registry is used to move the data. 
+Here, we set the default configuration `auto.register.schemas` to true, so that
+we do not need to register the schema by hand. `http://localhost:8081/subjects` shows the registered schemas.
+When working with SpringBoot and JSON serde, there is a good [documentation](https://howtodoinjava.com/kafka/spring-boot-jsonserializer-example/).
 
 Finally, the data is stored in a PostgreSQL database `testDB`.
 
-Functions as well as the topologies are being tested by unit tests.
+The topology is tested with a unit test.
 
 
 
@@ -36,7 +36,7 @@ https://start.spring.io/
 
 ## Run Project
 
-Start Kafka broker, Zookeeper, and schema registry
+Start Kafka broker, Zookeeper, and Schema Registry
 
 ```docker-compose up -d```
 
